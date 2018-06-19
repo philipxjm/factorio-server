@@ -1,0 +1,48 @@
+sampler2D gameview  : register(s0);
+sampler2D lightmap  : register(s1);
+
+float4 darkness_data    : register(c0);
+float4 resolution       : register(c1);
+float4 nv_color         : register(c2);
+float4 nv_desaturation  : register(c3);
+float4 nv_light_params  : register(c4);
+
+float4 ps_main(float2 uv: TEXCOORD0) : COLOR0
+{
+  float nv_intensity    = darkness_data.x;
+  float darkness        = darkness_data.y;
+  float timer           = darkness_data.z;
+  float render_darkness = darkness_data.w;
+
+  float4 color  = tex2D(gameview, uv);
+  if (render_darkness == 0)
+  {
+    return color;
+  }
+
+  float4 light = tex2D(lightmap, uv);
+
+  if (nv_intensity > 0)
+  {
+    float luminance = dot(color.rgb, float3(0.299, 0.587, 0.114));
+    float lightLuminance = max(light.r, max(light.g, light.b));
+    float3 grayscale = luminance * nv_intensity; // * nv_color.a * nv_color.rgb;
+    float lightIntensity = smoothstep(nv_desaturation.x, nv_desaturation.y, lightLuminance) * nv_desaturation.z + nv_desaturation.w;
+
+    if (lightLuminance > 0)
+    {
+      // Tint image by color of light divaded by light luminance to not make image darker
+      color.rgb = color.rgb * ((light.rgb / lightLuminance) * 0.75 + 0.25);
+    }
+
+    color.rgb = lerp(grayscale, color.rgb, lightIntensity);
+    lightIntensity = smoothstep(nv_light_params.x, nv_light_params.y, lightLuminance) * nv_light_params.z + nv_light_params.w;
+
+    return float4(color.rgb * lightIntensity, color.a);
+  }
+  else
+  {
+    color.rgb = color.rgb * light.rgb;
+    return color;
+  }
+}

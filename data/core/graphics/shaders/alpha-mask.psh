@@ -1,0 +1,11 @@
+sampler2D material : register(s0);
+sampler2D mask     : register(s1);
+sampler2D mask2     : register(s2);
+
+float4 ps_main(float2 uv: TEXCOORD0, float4 texColor: COLOR0) : COLOR0
+{ 
+  float4 colorMask  = tex2D(mask, texColor.rg) * tex2D(mask2, texColor.ba);
+  float4 colorMat = tex2D(material, uv);
+  
+  return colorMat * colorMask.r;
+}

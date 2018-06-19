@@ -1,0 +1,32 @@
+{
+  "available-campaign-levels": {
+    "demo": {
+      "level-01": "hard"
+    },
+    "tight-spot": {
+      "level-01": "hard"
+    },
+    "transport-belt-madness": {
+      "level-01": "hard"
+    }
+  },
+  "service-username": "philipxjm",
+  "service-token": "b0bd490a5cd877025a8dac29308fe8",
+  "last-used-filters": {
+    "password": "any",
+    "mods": "any",
+    "friends": "any"
+  },
+  "column-ordering": {
+    "public-index": "name",
+    "public-ascending": true,
+    "lan-index": "name",
+    "lan-ascending": true
+  },
+  "last-played-version": {
+    "game_version": "0.16.36",
+    "build_version": 36253,
+    "build_mode": "headless",
+    "platform": "linux64"
+  }
+}

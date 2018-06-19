@@ -1,0 +1,8 @@
+require("prototypes.fonts")
+require("prototypes.noise-layers")
+require("prototypes.style")
+require("prototypes.utility-constants")
+require("prototypes.utility-sounds")
+require("prototypes.utility-sprites")
+require("prototypes.god-controller")
+require("prototypes.noise-programs")

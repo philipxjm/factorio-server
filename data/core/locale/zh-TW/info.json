@@ -1,0 +1,30 @@
+{
+  "completed": 97,
+  "font": {
+    "default": [
+      "__core__/locale/zh-CN/fonts/default-font.ttf",
+      "__core__/fonts/DejaVuSans.ttf",
+      "__core__/locale/ja/fonts/regular.ttf",
+      "__core__/locale/ko/malgun.ttf"
+    ],
+    "default-bold": [
+      "__core__/locale/zh-CN/fonts/default-font.ttf",
+      "__core__/fonts/DejaVuSans-Bold.ttf",
+      "__core__/locale/ja/fonts/bold.ttf",
+      "__core__/locale/ko/malgunbd.ttf"
+    ],
+    "default-mono": [
+      "__core__/locale/zh-CN/fonts/default-font.ttf",
+      "__core__/fonts/DejaVuSansMono.ttf",
+      "__core__/locale/ja/fonts/regular.ttf",
+      "__core__/locale/ko/malgun.ttf"
+    ],
+    "default-semibold": [
+      "__core__/locale/zh-CN/fonts/default-font.ttf",
+      "__core__/fonts/DejaVuSans.ttf",
+      "__core__/locale/ja/fonts/medium.ttf",
+      "__core__/locale/ko/malgun.ttf"
+    ]
+  },
+  "language-name": "Chinese Traditional"
+}
